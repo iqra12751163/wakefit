@@ -8,18 +8,32 @@ h2 { text-align:center; color:#1f3c88; }
 .big-text { font-size:20px; text-align:center; }
 </style>
 </head>
-<body>
+<header style="background:#1f3c88; color:white; padding:15px;">
 
-<header>
-  <h1>Wakefit</h1>
-  <nav>
+  <!-- INLINE CSS used here -->
+
+  <div style="display:flex; justify-content:space-between; align-items:center;">
+    <h1 style="margin:0;">Wakefit</h1>
+
+    <div style="text-align:right; font-size:15px;">
+      <div>📧 support@wakefit.com</div>
+      <div>📞 +91 9876543210</div>
+    </div>
+  </div>
+
+  <nav style="margin-top:12px; text-align:center;">
     <a onclick="showHome()">Home</a>
-    <a onclick="showSection('categoriesPage')">Categories</a>
+    <a onclick="showSection('beds')">Beds</a>
+    <a onclick="showSection('mattresses')">Mattresses</a>
+    <a onclick="showSection('chairs')">Chairs</a>
+    <a onclick="showSection('dining')">Dining</a>
     <a onclick="showSection('cart')">Cart (<span id="cartCount">0</span>)</a>
     <a onclick="showSection('contact')">Contact</a>
     <a onclick="showSection('about')">About</a>
   </nav>
+
 </header>
+
 
 <!-- HERO -->
 <div class="hero">Comfort Redefined</div>
@@ -27,7 +41,7 @@ h2 { text-align:center; color:#1f3c88; }
 <!-- HOME -->
 <section id="home" class="section">
   <div class="categories">
-    <div onclick="showSection('beds')"><img src="bed1.jpg"><p>Beds</p></div>
+    <div onclick="showSection('beds')"><img src="bed.jpg"><p>Beds</p></div>
     <div onclick="showSection('mattresses')"><img src="mattress1.jpg"><p>Mattresses</p></div>
     <div onclick="showSection('chairs')"><img src="chair1.jpg"><p>Chairs</p></div>
     <div onclick="showSection('dining')"><img src="dining1.jpg"><p>Dining</p></div>
@@ -51,10 +65,10 @@ h2 { text-align:center; color:#1f3c88; }
 <div class="products">
   <div><img src="bed1.jpg"><p>Wooden Bed</p><p>₹25000</p><button onclick="addToCart('Wooden Bed',25000,'bed1.jpg',this)">Add</button></div>
   <div><img src="bed2.jpg"><p>Queen Bed</p><p>₹30000</p><button onclick="addToCart('Queen Bed',30000,'bed2.jpg',this)">Add</button></div>
-  <div><img src="bed3.jpg"><p>King Bed</p><p>₹35000</p><button onclick="addToCart('King Bed',35000,'bed3.jpg',this)">Add</button></div>
-  <div><img src="bed4.jpg"><p>Storage Bed</p><p>₹40000</p><button onclick="addToCart('Storage Bed',40000,'bed4.jpg',this)">Add</button></div>
-</div>
-</section>
+  <div><img src="bed3.jpg"><p>Storage Bed</p><p>₹35000</p><button onclick="addToCart('Storage Bed',35000,'bed3.jpg',this)">Add</button></div>
+  <div><img src="bed4.jpg"><p>King Bed</p><p>₹40000</p><button onclick="addToCart('King Bed',40000,'bed4.jpg',this)">Add</button></div>
+</div> 
+</section>'
 
 <section id="mattresses" class="section hidden">
 <h2>Mattresses</h2>
@@ -80,7 +94,7 @@ h2 { text-align:center; color:#1f3c88; }
 <h2>Dining</h2>
 <div class="products">
   <div><img src="dining1.jpg"><p>Dining Set</p><p>₹22000</p><button onclick="addToCart('Dining Set',22000,'dining1.jpg',this)">Add</button></div>
-  <div><img src="dining2.jpg"><p>4 Seater</p><p>₹18000</p><button onclick="addToCart('4 Seater',18000,'dining2.jpg',this)">Add</button></div>
+  <div><img src="dining2.jpg"><p>Storage Rack</p><p>₹18000</p><button onclick="addToCart('Storage Rack',18000,'dining2.jpg',this)">Add</button></div>
   <div><img src="dining3.jpg"><p>6 Seater</p><p>₹28000</p><button onclick="addToCart('6 Seater',28000,'dining3.jpg',this)">Add</button></div>
   <div><img src="dining4.jpg"><p>Glass Table</p><p>₹25000</p><button onclick="addToCart('Glass Table',25000,'dining4.jpg',this)">Add</button></div>
 </div>
