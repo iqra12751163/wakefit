@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wakefit</title>
+
+<link rel="stylesheet" href="style.css">
+
+<!-- INTERNAL CSS -->
+<style>
+h2 { text-align:center; color:#1f3c88; }
+.big-text { font-size:24px; text-align:center; }
+</style>
+</head>
+
+<!-- INLINE CSS -->
+<body style="background:#f5f5f5; font-family:Arial;">
+
+<header style="background:#1f3c88; color:white;">
+  <h1 style="margin-left:20px;">Wakefit</h1>
+  <nav>
+    <a onclick="showHome()">Home</a>
+    <a onclick="showSection('cart')">Cart (<span id="cartCount">0</span>)</a>
+    <a onclick="showSection('contact')">Contact</a>
+    <a onclick="showSection('about')">About</a>
+  </nav>
+</header>
+
+<!-- HOME -->
+<section id="home" class="section">
+  <div class="hero">
+    <h1 style="font-size:42px;">Comfort Redefined</h1>
+  </div>
+
+  <h2>Categories</h2>
+  <div class="categories">
+    <div onclick="showSection('beds')"><img src="bed1.jpg"><p>Beds</p></div>
+    <div onclick="showSection('mattresses')"><img src="mattress1.jpg"><p>Mattresses</p></div>
+    <div onclick="showSection('chairs')"><img src="chair1.jpg"><p>Chairs</p></div>
+    <div onclick="showSection('dining')"><img src="dining1.jpg"><p>Dining</p></div>
+  </div>
+</section>
+
+<!-- PRODUCT TEMPLATE (REUSED) -->
+<section id="beds" class="section hidden">
+<h2>Beds</h2>
+<div class="products">
+<div><img src="bed1.jpg"><p>Wooden Bed</p><button onclick="addToCart('Wooden Bed',25000,'bed1.jpg')">Add</button></div>
+<div><img src="bed2.jpg"><p>Queen Bed</p><button onclick="addToCart('Queen Bed',30000,'bed2.jpg')">Add</button></div>
+<div><img src="bed3.jpg"><p>King Bed</p><button onclick="addToCart('King Bed',35000,'bed3.jpg')">Add</button></div>
+<div><img src="bed4.jpg"><p>Storage Bed</p><button onclick="addToCart('Storage Bed',40000,'bed4.jpg')">Add</button></div>
+<div><img src="bed5.jpg"><p>Metal Bed</p><button onclick="addToCart('Metal Bed',20000,'bed5.jpg')">Add</button></div>
+</div>
+</section>
+
+<section id="mattresses" class="section hidden">
+<h2>Mattresses</h2>
+<div class="products">
+<div><img src="mattress1.jpg"><p>Orthopedic</p><button onclick="addToCart('Orthopedic Mattress',15000,'mattress1.jpg')">Add</button></div>
+<div><img src="mattress2.jpg"><p>Memory Foam</p><button onclick="addToCart('Memory Foam Mattress',18000,'mattress2.jpg')">Add</button></div>
+<div><img src="mattress3.jpg"><p>Latex</p><button onclick="addToCart('Latex Mattress',20000,'mattress3.jpg')">Add</button></div>
+<div><img src="mattress4.jpg"><p>Hybrid</p><button onclick="addToCart('Hybrid Mattress',22000,'mattress4.jpg')">Add</button></div>
+<div><img src="mattress5.jpg"><p>Single</p><button onclick="addToCart('Single Mattress',12000,'mattress5.jpg')">Add</button></div>
+</div>
+</section>
+
+<section id="chairs" class="section hidden">
+<h2>Chairs</h2>
+<div class="products">
+<div><img src="chair1.jpg"><p>Office Chair</p><button onclick="addToCart('Office Chair',7000,'chair1.jpg')">Add</button></div>
+<div><img src="chair2.jpg"><p>Dining Chair</p><button onclick="addToCart('Dining Chair',5000,'chair2.jpg')">Add</button></div>
+<div><img src="chair3.jpg"><p>Recliner</p><button onclick="addToCart('Recliner',12000,'chair3.jpg')">Add</button></div>
+<div><img src="chair4.jpg"><p>Rocking Chair</p><button onclick="addToCart('Rocking Chair',8000,'chair4.jpg')">Add</button></div>
+<div><img src="chair5.jpg"><p>Plastic Chair</p><button onclick="addToCart('Plastic Chair',2000,'chair5.jpg')">Add</button></div>
+</div>
+</section>
+
+<section id="dining" class="section hidden">
+<h2>Dining</h2>
+<div class="products">
+<div><img src="dining1.jpg"><p>Dining Set</p><button onclick="addToCart('Dining Set',22000,'dining1.jpg')">Add</button></div>
+<div><img src="dining2.jpg"><p>4 Seater</p><button onclick="addToCart('4 Seater',18000,'dining2.jpg')">Add</button></div>
+<div><img src="dining3.jpg"><p>6 Seater</p><button onclick="addToCart('6 Seater',28000,'dining3.jpg')">Add</button></div>
+<div><img src="dining4.jpg"><p>Glass Table</p><button onclick="addToCart('Glass Table',25000,'dining4.jpg')">Add</button></div>
+<div><img src="dining5.jpg"><p>Wood Table</p><button onclick="addToCart('Wood Table',20000,'dining5.jpg')">Add</button></div>
+</div>
+</section>
+
+<!-- CART -->
+<section id="cart" class="section hidden">
+  <h2>Your Cart</h2>
+
+  <table id="cartItems"></table>
+
+  <!-- COUPON -->
+  <div style="margin:15px 0; text-align:center;">
+    <input
+      id="couponCode"
+      placeholder="Enter Coupon Code"
+      style="padding:8px; width:200px;"
+    >
+    <button onclick="applyCoupon()">Apply</button>
+  </div>
+
+  <h3>Total: ₹<span id="cartTotal">0</span></h3>
+
+  <button onclick="confirmOrder()">Confirm Order</button>
+</section>
+
+
+
+<!-- CONTACT -->
+<section id="contact" class="section hidden">
+<h2>Contact Us</h2>
+<div class="contact-box">
+<form onsubmit="submitContact(event)">
+  <input id="cname" placeholder="Name" required>
+  <input id="cemail" type="email" placeholder="Email" required>
+
+  <!--phone number-->
+  <input id="cphone" type="tel" placeholder="Phone Number" required>
+
+  <textarea id="cmsg" placeholder="Message" required></textarea>
+  <button type="submit">Submit</button>
+</form>
+<img src="contact.jpg">
+</div>
+<p id="contactMsg" class="big-text"></p>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section hidden">
+<h2>About Wakefit</h2>
+<img src="about.jpg.jpg" class="big-img">
+
+<p class="big-text">⭐ Trusted by 25+ Lakh Customers</p>
+<p class="big-text">🚚 Free Shipping</p>
+<p class="big-text">🛠 Free Installation</p>
+
+<h3 style="text-align:center;">Customer Reviews</h3>
+<p>Rahul Sharma ⭐⭐⭐⭐⭐ – Excellent quality beds</p>
+<p>Ananya Verma ⭐⭐⭐⭐⭐ – Very comfortable mattress</p>
+<p>Suresh Kumar ⭐⭐⭐⭐ – Fast delivery & support</p>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
