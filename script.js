@@ -68,4 +68,4 @@ function applyCoupon(){
   else{ alert("Invalid coupon code"); }
 }
 
-showHome();
+showHome(); JSa
